@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-crimson: #c4252d;
+  --color-crimson-dark: #a81d24;
+  --color-maroon: #5a1115;
+  --color-maroon-deep: #4a0e12;
+  --color-blush: #fdf1f2;
+  --color-blush-border: #f5d6d9;
+  --color-ink: #1e1415;
+  --color-muted-ink: #665a5b;
+
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-plus-jakarta), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+  color: #1e1415;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1e1415;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom sleek warm scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdf1f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8b4b7;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4252d;
+}
+
+/* Range slider styling for ROI calculator & spicy meter */
+input[type="range"].warmindo-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 9999px;
+  background: #f5d6d9;
+  outline: none;
+}
+
+input[type="range"].warmindo-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #c4252d;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(196, 37, 45, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].warmindo-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+  background: #a81d24;
+}
+
+input[type="range"].warmindo-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #c4252d;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(196, 37, 45, 0.4);
+  cursor: pointer;
+}
+
+/* Print mode specifically for E-Ticket Reservasi Digital */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-eticket,
+  #printable-eticket * {
+    visibility: visible;
+  }
+
+  #printable-eticket {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #ffffff !important;
+    color: #1e1415 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    border: 2px solid #c4252d !important;
+    padding: 24px !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
